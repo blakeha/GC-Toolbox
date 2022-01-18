@@ -1,0 +1,16 @@
+﻿<ProjectState>
+  <Version>1.0</Version>
+  <FileID>3d8dc491-615f-453d-9f73-e8e795274f3c</FileID>
+  <OpenFolders>
+    <Folder>Assets</Folder>
+    <Folder>Forms</Folder>
+  </OpenFolders>
+  <OpenFiles>
+    <File>Assets\GoCurrentScripts.psm1</File>
+    <File>Globals.ps1</File>
+    <File>Startup.pss</File>
+    <File>MainForm.psf</File>
+    <File>Forms\Get-Ls-Packages-Form.psf</File>
+    <File>Forms\New-AppPackage-Form.psf</File>
+  </OpenFiles>
+</ProjectState>

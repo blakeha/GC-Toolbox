@@ -1,0 +1,80 @@
+﻿<File version="3.2">
+  <Code><![CDATA[#Define a Param block to use custom parameters in the project
+#Param ($CustomParameter
+using assembly System.Windows.Forms;
+
+#Requires -RunAsAdministrator
+
+function Main {
+<#
+    .SYNOPSIS
+        The Main function starts the project application.
+    
+    .PARAMETER Commandline
+        $Commandline contains the complete argument string passed to the script packager executable.
+    
+    .NOTES
+        Use this function to initialize your script and to call GUI forms.
+		
+    .NOTES
+        To get the console output in the Packager (Forms Engine) use: 
+		$ConsoleOutput (Type: System.Collections.ArrayList)
+#>
+	Param ([String]$Commandline)
+	#--------------------------------------------------------------------------
+	#TODO: Add initialization script here (Load modules and check requirements)
+	try
+	{
+		init
+	}
+	catch
+	{
+		$result = [System.Windows.Forms.MessageBox]::Show("Would you like to install the Go Current Server?", "Error: Missing Go Current Modules", "YesNo")
+		
+		if ($result -eq "Yes")
+		{
+			Start-Process ".\Assets\go-current-server.exe" -Wait -Verb RunAs
+		}
+		
+		$result = [System.Windows.Forms.MessageBox]::Show("Did the server install run to completion successfully?", "Error: Missing Go Current Modules", "YesNo")
+		
+		if ($result -eq "Yes")
+		{
+			[System.Windows.Forms.MessageBox]::Show("Please wait while the required modules are downloaded from the LS Retail Servers.")
+			init
+		}
+		else
+		{
+			Remove-Item -LiteralPath "C:\ProgramData\LS Retail\GoCurrent" -Force -Recurse
+		}
+		
+		
+	}
+	
+	
+}
+
+function init
+{
+	Import-Module GoCurrent
+	Install-GocPackage -Id 'ls-package-tools'
+	
+	Import-Module GoCurrent
+	Install-GocPackage -Id 'ls-package-tools'
+	Import-Module "$($PSScriptRoot)\Assets\GoCurrentScripts.psm1" -Force
+	Import-Module "$($PSScriptRoot)\Assets\Utils.psm1" -Force
+	
+	$PROJECT_FILE = ($PSScriptRoot + "\Assets\appsettings.json");
+	$ProjectFile = Get-Content -Path $PROJECT_FILE | ConvertFrom-Json
+	
+	#--------------------------------------------------------------------------
+	
+	if ((Show-MainForm_psf) -eq 'OK')
+	{
+		
+	}
+	
+	$script:ExitCode = 0 #Set the exit code for the Packager
+}
+]]></Code>
+</File>

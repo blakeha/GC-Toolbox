@@ -1,0 +1,24 @@
+﻿<Project Synchronized="False" SyncFilter="*.ps1;*.psm1;*.psd1;*.ps1xml;*.psf;*.pss;*.xml;*.help.txt">
+  <Version>2.1</Version>
+  <FileID>3d8dc491-615f-453d-9f73-e8e795274f3c</FileID>
+  <ProjectType>0</ProjectType>
+  <Folders>
+    <Folder>Assets</Folder>
+    <Folder>Forms</Folder>
+    <Folder>Packages</Folder>
+  </Folders>
+  <Files>
+    <File Build="0">Startup.pss</File>
+    <File Build="0" ReferenceFunction="Show-MainForm_psf">MainForm.psf</File>
+    <File Build="0" Shared="True" ReferenceFunction="Invoke-Global_ps1">Globals.ps1</File>
+    <File Build="0" ReferenceFunction="Show-ChildForm_psf">ChildForm.psf</File>
+    <File Build="2">Assets\appsettings.json</File>
+    <File Build="2">Assets\GoCurrentScripts.psm1</File>
+    <File Build="2">Assets\Utils.psm1</File>
+    <File Build="0" ReferenceFunction="Show-Get-Ls-Packages-Form_psf">Forms\Get-Ls-Packages-Form.psf</File>
+    <File Build="2">Assets\go-current-server.exe</File>
+    <File Build="0" ReferenceFunction="Show-New-AppPackage-Form_psf">Forms\New-AppPackage-Form.psf</File>
+    <File Build="0" ReferenceFunction="Show-LiveLogView-Form_psf">Forms\LiveLogView-Form.psf</File>
+    <File Build="2">Assets\LSRetail.Common.dll</File>
+  </Files>
+</Project>
