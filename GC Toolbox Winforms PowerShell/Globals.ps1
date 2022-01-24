@@ -9,7 +9,7 @@ function Get-ScriptDirectory
 <#
 	.SYNOPSIS
 		Get-ScriptDirectory returns the proper location of the script.
-
+		
 	.OUTPUTS
 		System.String
 	
